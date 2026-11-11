@@ -1,0 +1,46 @@
+# ─────────────────────────────────────────
+# AI Meeting Assistant – requirements.txt
+# ─────────────────────────────────────────
+
+# ── Audio / Video ingestion ──────────────
+yt-dlp>=2024.3.10               # Download audio from YouTube URLs
+pydub>=0.25.1                   # Audio processing & format conversion
+ffmpeg-python>=0.2.0            # FFmpeg bindings (ffmpeg binary also required)
+
+# ── Transcription ────────────────────────
+openai-whisper>=20231117        # Local Whisper ASR
+torch>=2.2.0                    # Required by Whisper (CPU build is fine)
+torchaudio>=2.2.0               # Audio backend for torch
+
+# ── Translation (Hindi → English) ────────
+deep-translator>=1.11.4         # Lightweight Google Translate wrapper
+# OR if you prefer the transformers pipeline:
+# transformers>=4.40.0
+# sentencepiece>=0.2.0
+
+# ── LLM – Mistral via LangChain LCEL ─────
+langchain>=0.2.0
+langchain-core>=0.2.0
+langchain-community>=0.2.0
+langchain-mistralai>=0.1.0      # LangChain integration for Mistral AI API
+mistralai>=0.4.0                # Official Mistral Python SDK
+
+# ── RAG pipeline ─────────────────────────
+chromadb>=0.5.0                 # Vector store
+sentence-transformers>=2.7.0    # HuggingFace embeddings (all-MiniLM-L6-v2 etc.)
+langchain-huggingface>=0.0.3    # HuggingFaceEmbeddings wrapper for LangChain
+tiktoken>=0.6.0                 # Token counting for text splitting
+
+# ── Streamlit UI ──────────────────────────
+streamlit>=1.35.0
+streamlit-extras>=0.4.0         # Optional: nicer UI components
+
+# ── Export: PDF & TXT ────────────────────
+reportlab>=4.1.0                # PDF generation
+fpdf2>=2.7.9                    # Alternative lightweight PDF library (pick one)
+
+# ── Utilities ─────────────────────────────
+python-dotenv>=1.0.0            # Load .env for API keys
+numpy>=1.26.0
+requests>=2.31.0
+tqdm>=4.66.0                    # Progress bars
